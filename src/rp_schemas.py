@@ -1,22 +1,24 @@
 INPUT_SCHEMA = {
     'prompt': {
         'type': str,
-        'required': False,
+        'required': True,
     },
     'negative_prompt': {
         'type': str,
         'required': False,
-        'default': None
+        'default': 'ugly, deformed, disfigured, low quality, blurry, bad anatomy, extra limbs, '
+                   'bad hands, missing fingers, watermark, text, signature, worst quality, '
+                   'jpeg artifacts, cropped, out of frame'
     },
     'height': {
         'type': int,
         'required': False,
-        'default': 1024
+        'default': 1152
     },
     'width': {
         'type': int,
         'required': False,
-        'default': 1024
+        'default': 768
     },
     'seed': {
         'type': int,
@@ -26,17 +28,17 @@ INPUT_SCHEMA = {
     'scheduler': {
         'type': str,
         'required': False,
-        'default': 'DDIM'
+        'default': 'K_EULER'
     },
     'num_inference_steps': {
         'type': int,
         'required': False,
-        'default': 25
+        'default': 30
     },
     'guidance_scale': {
         'type': float,
         'required': False,
-        'default': 7.5
+        'default': 7.0
     },
     'strength': {
         'type': float,
@@ -51,8 +53,8 @@ INPUT_SCHEMA = {
     'num_images': {
         'type': int,
         'required': False,
-        'default': 1,
-        'constraints': lambda img_count: 3 > img_count > 0
+        'default': 4,
+        'constraints': lambda img_count: 5 > img_count > 0
     },
     'high_noise_frac': {
         'type': float,
